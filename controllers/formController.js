@@ -49,6 +49,8 @@ exports.update = async (req, res) => {
   if (req.body.questions && req.body.questions.length)
     res.form.numberOfQuestions = req.body.questions.length
 
+  res.form.updatedAt = Date.now()
+
   try {
     const form = await res.form.save()
     const questions = await QuestionController.update(form._id, req.body.questions)
