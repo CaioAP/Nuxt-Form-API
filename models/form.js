@@ -17,7 +17,8 @@ const formSchema = new mongoose.Schema({
   },
   updatedAt: {
     type: Date,
-    default: new Date()
+    required: true,
+    default: Date.now
   }
 })
 
