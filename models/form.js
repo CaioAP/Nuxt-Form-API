@@ -15,6 +15,10 @@ const formSchema = new mongoose.Schema({
     default: 0,
     min: 0,
   },
+  updatedAt: {
+    type: Date,
+    default: new Date()
+  }
 })
 
 module.exports = mongoose.model('Form', formSchema)

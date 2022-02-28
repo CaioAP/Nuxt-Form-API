@@ -55,7 +55,6 @@ exports.update = async (form, questionsData) => {
 
     questionsData.forEach(question => question.formId = form)
     
-    console.log(questionsData)
     return await Question.insertMany(questionsData)
   } catch (error) {
     throw new Error(error.message)
@@ -89,7 +88,6 @@ exports.findOne = async (req, res) => {
 
 exports.insert = async (req, res) => {
   try {
-    console.log(req.body)
     const question = new Question({
       formId: req.body.formId,
       possibleAnswers: FIRST_POSSIBLE_ANSWERS

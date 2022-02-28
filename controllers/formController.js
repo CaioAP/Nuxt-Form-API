@@ -1,3 +1,4 @@
+const ObjectId = require('mongoose').Types.ObjectId
 const QuestionController = require('./questionController')
 const Form = require('../models/form')
 
@@ -64,6 +65,16 @@ exports.delete = async (req, res) => {
     res.json({ message: 'Deleted form' })
   } catch (error) {
     res.status(500).json({ message: error.message })
+  }
+}
+
+exports.addAnswer = async (form) => {
+  try {
+    const filter = { _id: ObjectId(form) }
+    const update = { $inc: { numberOfAnswers: 1 }}
+    await Form.findOneAndUpdate(filter, update)
+  } catch (error) {
+    throw new Error(error.message)
   }
 }
 

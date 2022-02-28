@@ -15,8 +15,10 @@ app.use(express.json())
 
 const formsRouter = require('./routes/forms')
 const questionsRouter = require('./routes/questions')
+const answersRouter = require('./routes/answers')
 app.use('/forms', formsRouter)
 app.use('/questions', questionsRouter)
+app.use('/answers', answersRouter)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
